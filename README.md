@@ -16,98 +16,77 @@ A simple modal component
   </html>
 
 ```
-
----
-
-# SimpleModal Component
+# Simple Modal
 
 
-This is a custom web component that represents a simple modal with a close button and a show modal button.
+A simple modal component that can be shown or hidden using custom elements in HTML.
 
 
 ## Functions
 
 
-### connectedCallback()
-
-- Description: This function is called when the element is first connected to the document's DOM. It initializes the modal by creating a close button, setting up event listeners, and creating a show modal button if it doesn't already exist.
-
-- Parameters: None
+### SimpleModal
 
 
-### hideModal()
-
-- Description: This function hides the modal by changing its opacity and display properties, and sets the opacity of the show modal button to 1.
-
-- Parameters: None
+#### connectedCallback()
 
 
-### showModal()
+- Checks if the modal is supposed to be hidden by checking the `hidden` attribute.
 
-- Description: This function shows the modal by changing its opacity and display properties, and sets the opacity of the show modal button to 0.
+- Creates a close button with functionality to close the modal when clicked.
 
-- Parameters: None
+- Sets a transition effect for showing and hiding the modal.
 
+- Creates a button to show the modal if one doesn't exist.
 
-### static get observedAttributes()
+- Hides the modal by changing opacity and display properties.
 
-- Description: This static method defines which attributes the browser should watch for changes on this element.
-
-- Returns: An empty array since no attributes are being observed.
-
-
-### attributeChangedCallback(name, old_value, new_value)
-
-- Description: This function is called when an observed attribute changes. In this component, there are no attributes being observed.
-
-- Parameters:
-
-  - `name`: The name of the attribute that changed.
-
-  - `old_value`: The previous value of the attribute.
-
-  - `new_value`: The new value of the attribute.
+- Updates the visibility of the modal trigger button.
 
 
-## ShowModal Component
+#### hideModal()
 
 
-This is a custom web component that represents a button to show the modal.
+- Hides the modal by changing opacity and display properties.
+
+- Sets a timeout to delay the hiding effect for a smooth transition.
+
+- Updates the visibility of the modal trigger button.
 
 
-### Functions
+#### showModal()
 
 
-### connectedCallback()
+- Shows the modal by changing opacity and display properties.
 
-- Description: This function is called when the element is first connected to the document's DOM. It sets up a click event listener to show the modal when clicked.
-
-- Parameters: None
+- Updates the visibility of the modal trigger button.
 
 
-### static get observedAttributes()
-
-- Description: This static method defines which attributes the browser should watch for changes on this element.
-
-- Returns: An empty array since no attributes are being observed.
+### ShowModal
 
 
-### attributeChangedCallback(name, old_value, new_value)
-
-- Description: This function is called when an observed attribute changes. In this component, there are no attributes being observed.
-
-- Parameters:
-
-  - `name`: The name of the attribute that changed.
-
-  - `old_value`: The previous value of the attribute.
-
-  - `new_value`: The new value of the attribute.
+#### connectedCallback()
 
 
-## Custom Element Registration
+- Adds an event listener to the element (button) to show the modal when clicked.
 
 
-- The `SimpleModal` component is registered as a custom element with the tag name 'simple-modal'.
+## Usage
 
-- The `ShowModal` component is registered as a custom element with the tag name 'simple-show-modal'.
+
+To use the Simple Modal component, add the `<simple-modal>` custom element to your HTML. You can also use the `<simple-show-modal>` element as a trigger to show the modal.
+
+
+Example:
+
+```html
+
+<simple-modal hidden></simple-modal>
+
+<simple-show-modal>Click to Show Modal</simple-show-modal>
+
+```
+
+
+By clicking on the "Click to Show Modal" button, the modal will be displayed. The close button in the modal can be used to hide it again.
+
